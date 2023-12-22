@@ -1,0 +1,9 @@
+User
+There is a text file called "input.txt". Each line contains a character sequence that you must parse.
+
+Write Python code that:
+- Takes the first and last single digit number of each line and concatenates them together to form a single value
+- Add up all of the values together from all of the lines
+- The sequence can contain the numbers from 1 to 9 in word form. As these are also considered to be valid numbers, you should use a tokenizer or regex to map them into number form
+
+For each line, you should replace the digits in string to numbers first, and then find the first and last numbers to concat them together.

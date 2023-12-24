@@ -1,12 +1,16 @@
-You are given a list of 4 numbers called seeds, and several maps that serve as conversion between source and destination resources
-The seeds form 2 pairs, where the first number is the start of the range and the second number is the length of the range.
+You are given an even list of numbers called seeds, and several maps that serve as conversion between source and destination resources
+The seeds form pairs, where the first number is the start of the range and the second number is the length of the range.
 The maps are listed in the order that they are applied.
 Your job is for each map, convert the array of numbers from the source resource to the destination resource.
 When you have an array of locations, return the lowest location.
 
+You should approach this problem by making an array from the smallest value in seeds to the largest value in seeds.
+Then, for each map, you should apply the map to the array.
+Finally, you should return the lowest location.
+
 Each map is presented in the following format:
 
-source i to destination j map:
+i-to-j map:
 x y z
 
 x is the start of the destination range
@@ -15,11 +19,15 @@ z is the length of the range
 
 source i between y to y + z - 1 are equal to destination j between x to x + z - 1.
 
+Therefore, you can transform the original array by adding or subtracting the difference between the source and destination numbers between each range.
+As the array only covers the range of seeds, you should only apply the map to the range of seeds.
+
 Any source numbers that aren't mapped correspond to the same destination number.
 
 For example:
+    """
     seeds: 79 14 55 13
-    Means that the first range is 79 to 92, and the second range is 55 to 67.
+    // Means that the first range is 79 to 92, and the second range is 55 to 67.
 
     seed-to-soil map:
     50 98 2
@@ -52,10 +60,11 @@ For example:
     humidity-to-location map:
     60 56 37
     56 93 4
+    """
 
-    The lowest location number can be obtained from seed number 82, which corresponds to soil 84, fertilizer 84, water 84, light 77, temperature 45, humidity 46, and location 46
-
+The format of the example is exactly how input.txt is formatted, so you must be able to parse the text as well.
+The lowest location number can be obtained from seed number 82, which corresponds to soil 84, fertilizer 84, water 84, light 77, temperature 45, humidity 46, and location 46
 Make sure that the example is correct before proceeding with input.txt. If the code tells you otherwise, then there is a bug in your code.
 
 If you proceed with input.txt, say clearly that the answer from your code is equal to the actual answer. If you cannot, then you cannot proceed.
-Write Python code
+Write Python code that can parse the example as well as input.txt

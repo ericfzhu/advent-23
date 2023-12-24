@@ -1,0 +1,95 @@
+You are given a list of seeds, and several maps that serve as conversion between source and destination resources
+The maps are listed in the order that they are applied.
+Your job is for each map, convert the array of numbers from the source resource to the destination resource.
+When you have an array of locations, return the lowest location.
+
+Each map is presented in the following format:
+
+source i to destination j map:
+x y z
+
+x is the start of the destination range
+y is the start of the source range
+z is the length of the range
+
+source i between y to y + z - 1 are equal to destination j between x to x + z - 1.
+
+Any source numbers that aren't mapped correspond to the same destination number.
+
+
+For example:
+    seeds: 79 14 55 13
+
+    seed-to-soil map:
+    50 98 2
+    52 50 48
+
+    seed 79 converted to soil is 81
+    seed 14 converted to soil is 14
+    seed 55 converted to soil is 57
+    seed 13 converted to soil is 13
+
+    soil-to-fertilizer map:
+    0 15 37
+    37 52 2
+    39 0 15
+
+    soil 81 converted to fertilizer is 81
+    soil 14 converted to fertilizer is 53
+    soil 57 converted to fertilizer is 57
+    soil 13 converted to fertilizer is 52
+
+    fertilizer-to-water map:
+    49 53 8
+    0 11 42
+    42 0 7
+    57 7 4
+
+    fertilizer 81 converted to water is 81
+    fertilizer 53 converted to water is 49
+    fertilizer 57 converted to water is 53
+    fertilizer 52 converted to water is 41
+
+    water-to-light map:
+    88 18 7
+    18 25 70
+
+    water 81 converted to light is 74
+    water 49 converted to light is 42
+    water 53 converted to light is 46
+    water 41 converted to light is 34
+
+    light-to-temperature map:
+    45 77 23
+    81 45 19
+    68 64 13
+
+    light 74 converted to temperature is 78
+    light 42 converted to temperature is 42
+    light 46 converted to temperature is 82
+    light 34 converted to temperature is 34
+
+    temperature-to-humidity map:
+    0 69 1
+    1 0 69
+
+    temperature 78 converted to humidity is 78
+    temperature 42 converted to humidity is 43
+    temperature 82 converted to humidity is 82
+    temperature 34 converted to humidity is 35
+
+    humidity-to-location map:
+    60 56 37
+    56 93 4
+
+    humidity 78 converted to location is 82
+    humidity 43 converted to location is 43
+    humidity 82 converted to location is 86
+    humidity 35 converted to location is 35
+
+    The lowest location in this example is 35
+
+Make sure that the example is correct before proceeding with input.txt. If the code tells you otherwise, then there is a bug in your code.
+
+If you proceed with input.txt, say clearly that the answer from your code is equal to the actual answer. If you cannot, then you cannot proceed.
+Write Python code

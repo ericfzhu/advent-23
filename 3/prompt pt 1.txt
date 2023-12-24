@@ -1,0 +1,35 @@
+You are given a grid of characters that contains numbers, periods, and symbols.
+Your job is to write Python code that for each symbol, identify all numbers that are placed in the 3x3 grid surrounding it (diagonally adjacent cells are also considered as surrounding), and add them together.
+Each number should be added only once, even if it is adjacent to multiple symbols.
+Periods are used to fill in empty space in the grid.
+Anything other than a number or period is considered a symbol.
+Numbers only appear horizontally.
+
+For example:
+
+467..114..
+...*......
+..35..633.
+......#...
+617*......
+.....+.58.
+..592.....
+......755.
+...$.*....
+.664.598..
+
+In the above grid: 
+- 467 is diagonally adjacent to a * and so is a part number
+- 114 is not adjacent to any symbol
+- 35 is adjacent to a * and so is a part number
+- 633 is adjacent to a # and so is a part number
+- 617 is adjacent to a * and so is a part number
+- 58 is not adjacent to any symbol
+- 592 is diagonally adjacent to a + and so is a part number
+- 755 is diagonally adjacent to a * and so is a part number
+- 664 is adjacent to a $ and so is a part number
+- 598 is adjacent to a * and so is a part number;
+
+
+The sum of all part numbers is 4361.
+If the code tells you otherwise, the code is wrong.

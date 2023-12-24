@@ -1,0 +1,5 @@
+There is a text file called "input.txt". Each line contains a character sequence that you must parse.
+
+Write Python code that:
+- Takes the first and last single digit number of each line and concatenates them together to form a single value
+- Add up all of the values together from all of the lines

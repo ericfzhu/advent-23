@@ -1,0 +1,23 @@
+You are given a grid of characters that contains characters.
+Your job is to write Python code that for each "*", identify all numbers that are placed in the 3x3 grid surrounding it (diagonally adjacent cells are also considered as surrounding).
+If there are exactly two numbers, multiply them together and add the result to a running total. If there are not exactly two numbers, then ignore the "*".
+Periods are used to fill in empty space in the grid.
+Numbers only appear horizontally. Ignore any numbers that appear vertically.
+
+For example:
+
+467..114..
+...*......
+..35..633.
+......#...
+617*......
+.....+.58.
+..592.....
+......755.
+...$.*....
+.664.598..
+
+In the above grid: 
+There are two gears. The first is in the top left; it has part numbers 467 and 35, so its gear ratio is 16345. The second gear is in the lower right; its gear ratio is 451490. (The * adjacent to 617 is not a gear because it is only adjacent to one part number.) Adding up all of the gear ratios produces 467835.
+
+Make sure that the example is correct before proceeding with input.txt. If the code tells you otherwise, then there is a bug in your code.

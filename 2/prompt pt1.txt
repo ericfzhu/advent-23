@@ -1,0 +1,14 @@
+You are given a list of strings in the following format:
+Game x: a semicolon-separated list of colors with numbers in front of each of them.
+Your role is to figure out whether each subsection is within 12 red, 13 green, and 14 blue. If all subsections of a game satisfy this condition, add x to the total number.
+
+For example:
+Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green
+Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue
+Game 3: 8 green, 6 blue, 20 red; 5 blue, 4 red, 13 green; 5 green, 1 red
+Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red
+Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green
+
+Only games 1, 2, and 5 would be possible, as game 3 has a subsection with 20 red, and game 4 has a subsection with 14 red. Thus, the sum of 1, 2 and 5 is 8 and the answer for this example.
+
+Write Python code

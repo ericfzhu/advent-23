@@ -1,59 +1,52 @@
-def parse_input(input_text):
-    lines = input_text.strip().split('\n')
-    seeds = []
+# It appears that there is an issue with parsing the seeds section. I will adjust the code to correctly handle the format.
+
+def parse(example):
+    # Splitting the example into sections
+    sections = example.strip().split("\n\n")
+    seeds_section = sections[0].split("\n")[0].split(":")[1].strip()
+    seeds = [int(n) for n in seeds_section.split()]
+
+    # Parsing the map sections
     maps = []
-    current_map = None
-
-    # Parsing the input
-    for line in lines:
-        if line.startswith("seeds:"):
-            # Parse seeds
-            seed_values = line.split()[1:]
-            for i in range(0, len(seed_values), 2):
-                start = int(seed_values[i])
-                length = int(seed_values[i + 1])
-                seeds.extend(range(start, start + length))
-        elif line.endswith("map:"):
-            # Start a new map
-            if current_map is not None:
-                maps.append(current_map)
-            current_map = []
-        else:
-            # Parse map lines
-            map_values = list(map(int, line.split()))
-            if map_values:
-                current_map.append(map_values)
-
-    # Add the last map
-    if current_map is not None:
-        maps.append(current_map)
+    for section in sections[1:]:
+        lines = section.strip().split("\n")[1:]
+        map_data = []
+        for line in lines:
+            if line.strip():
+                map_data.append(tuple(map(int, line.strip().split())))
+        maps.append(map_data)
 
     return seeds, maps
 
-def apply_maps(seeds, maps):
-    for map_ in maps:
-        new_seeds = []
-        for seed in seeds:
-            mapped = False
-            for x, y, z in map_:
-                if y <= seed < y + z:
-                    new_seeds.append(x + (seed - y))
-                    mapped = True
+def convert_numbers(seeds, maps):
+    ranges = []
+    for i in range(0, len(seeds), 2):
+        start, length = seeds[i], seeds[i+1]
+        ranges.extend(range(start, start + length))
+
+    for map_data in maps:
+        new_ranges = []
+        for number in ranges:
+            converted = False
+            for dest_start, src_start, length in map_data:
+                if src_start <= number < src_start + length:
+                    new_number = dest_start + (number - src_start)
+                    new_ranges.append(new_number)
+                    converted = True
                     break
-            if not mapped:
-                new_seeds.append(seed)
-        seeds = new_seeds
-    return seeds
+            if not converted:
+                new_ranges.append(number)
+        ranges = new_ranges
 
+    return min(ranges)
 
+file_path = 'input.txt'
 
-file_path = '5/input.txt'
 with open(file_path, 'r') as file:
-    input_text = file.read()
+    input_txt = file.read()
 
-seeds, maps = parse_input(input_text)
-final_locations = apply_maps(seeds, maps)
+# Parse the example and process it
+seeds, maps = parse(input_txt)
+result = convert_numbers(seeds, maps)
+result
 
-# Finding the lowest location
-lowest_location = min(final_locations)
-print(lowest_location)
